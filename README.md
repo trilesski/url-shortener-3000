@@ -1,4 +1,8 @@
 ## URL Shortener 3000
+<p align="left">
+  <img src="assets/logo.png" width="300">
+</p>
+
 Simple FastAPI microservice for shortening URLs.
 
 #### Endpoints:
