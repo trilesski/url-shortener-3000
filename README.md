@@ -7,7 +7,16 @@ Simple FastAPI microservice for shortening URLs.
 - `GET /stats/{short_id} -> { short_id, url, visits }`
 
 
-#### 🔧 Build: ```docker compose build app```
-#### 🕵️‍♀️ Test: ```docker compose run app python -m pytest```
-#### 🟢 Run: ```docker compose up app -d```
+#### 🔧 Build: 
+```
+docker compose build app
+```
+#### 🕵️‍♀️ Test: 
+```
+docker compose run app python -m pytest
+```
+#### 🟢 Run: 
+```
+docker compose up app -d
+```
 
