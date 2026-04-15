@@ -1,4 +1,5 @@
 import logging
+from contextlib import asynccontextmanager
 
 import uvicorn
 from fastapi import FastAPI
@@ -12,13 +13,18 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 
-app = FastAPI(title="URL Shortener 3000")
-app.include_router(shorted_url_router)
-
-
-@app.on_event("startup")
-async def on_startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     await init_db()
+    yield
+
+
+app = FastAPI(
+    title="URL Shortener 3000",
+    lifespan=lifespan
+)
+
+app.include_router(shorted_url_router)
 
 
 if __name__ == "__main__":
